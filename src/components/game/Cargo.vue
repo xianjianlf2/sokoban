@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import cargoImg from '../../assets/cargo.png'
+import cargoOnTargetImg from '../../assets/cargo_on_target.png'
 import { usePosition } from '../../composables/usePosition'
 import type { Cargo } from '../../store/cargo'
 
@@ -10,7 +11,7 @@ const { position } = usePosition(props)
 
 <template>
   <div class="absolute" :style="position">
-    <img :src="cargoImg">
+    <img :src="onTarget ? cargoOnTargetImg : cargoImg">
   </div>
 </template>
 

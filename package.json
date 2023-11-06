@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "cz": "git cz"
   },
   "dependencies": {
     "pinia": "^2.1.7",
@@ -17,6 +18,8 @@
     "@antfu/eslint-config": "^1.1.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.16",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.52.0",
     "happy-dom": "^12.10.3",
     "postcss": "^8.4.31",
