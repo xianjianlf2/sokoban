@@ -1,6 +1,6 @@
-import { it, expect, describe, beforeEach } from 'vitest'
-import { useMove } from '../player'
+import { beforeEach, expect, it } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
+import { useMove } from '../player'
 import { usePlayerStore } from '../../../store/player'
 import { useMapStore } from '../../../store/map'
 
@@ -13,7 +13,7 @@ it('should move to left when press ArrowLeft', () => {
   setupMap([
     [2, 2, 2],
     [2, 2, 2],
-    [2, 2, 2]
+    [2, 2, 2],
   ])
   const { player } = usePlayerStore()
   player.x = 1

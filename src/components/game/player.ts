@@ -1,14 +1,17 @@
+import { useGameStore } from '../../store/game'
 import { usePlayerStore } from '../../store/player'
 
 export function useMove() {
   const {
     movePlayerToLeft,
-    movePlayerToTop,
     movePlayerToDown,
-    movePlayerToRight
+    movePlayerToRight,
+    movePlayerToUp,
   } = usePlayerStore()
 
-  window.addEventListener('keyup', (e: KeyboardEvent) => {
+  const { detectionGameCompleted } = useGameStore()
+
+  function handleKeyup(e: KeyboardEvent) {
     switch (e.code) {
       case 'ArrowLeft':
         movePlayerToLeft()
@@ -17,11 +20,14 @@ export function useMove() {
         movePlayerToRight()
         break
       case 'ArrowUp':
-        movePlayerToTop()
+        movePlayerToUp()
         break
       case 'ArrowDown':
         movePlayerToDown()
         break
     }
-  })
+    detectionGameCompleted()
+  }
+
+  window.addEventListener('keyup', handleKeyup)
 }

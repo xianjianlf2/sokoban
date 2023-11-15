@@ -8,8 +8,8 @@ const { map } = useMapStore()
 
 <template>
   <div>
-    <div v-for="(row, i) in map" class="flex">
-      <div v-for="(col, j) in map[i]">
+    <div v-for="(_row, i) in map" :key="i" class="flex">
+      <div v-for="(_col, j) in map[i]" :key="j">
         <template v-if="map[i][j] === MapTile.WALL">
           <img :src="wallImg">
         </template>

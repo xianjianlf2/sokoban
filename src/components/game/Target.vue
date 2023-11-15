@@ -2,9 +2,7 @@
 import targetImg from '../../assets/target.png'
 import { usePlayerStore } from '../../store/player'
 import { usePosition } from '../../composables/usePosition'
-import { useMove } from './player'
 
-useMove()
 const { player } = usePlayerStore()
 const { position } = usePosition(player)
 </script>

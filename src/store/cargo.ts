@@ -4,7 +4,9 @@ import type { Position } from '../composables/usePosition'
 import { useMapStore } from './map'
 import { useTargetStore } from './target'
 
+let Id = 1
 export interface Cargo {
+  id: number
   x: number
   y: number
   onTarget: boolean
@@ -15,6 +17,7 @@ export const useCargoStore = defineStore('cargo', () => {
 
   function createCargo({ x, y }: Position): Cargo {
     return {
+      id: Id++,
       x,
       y,
       onTarget: false,
@@ -42,10 +45,13 @@ export const useCargoStore = defineStore('cargo', () => {
 
     return true
   }
-  // 低层次代码，函数应该表达意图
   function detectionTarget(cargo: Cargo) {
     const { findTarget } = useTargetStore()
     cargo.onTarget = !!findTarget(cargo)
+  }
+
+  function cleanAllCargos() {
+    cargos.splice(0, cargos.length)
   }
 
   return {
@@ -54,5 +60,6 @@ export const useCargoStore = defineStore('cargo', () => {
     addCargo,
     findCargo,
     moveCargo,
+    cleanAllCargos,
   }
 })
