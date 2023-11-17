@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { useMapStore } from '../map'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
+import { useMapStore } from '../map'
 
 describe('map', () => {
   beforeEach(() => {
@@ -13,7 +13,7 @@ describe('map', () => {
     const newMap = [
       [1, 1, 1],
       [1, 1, 1],
-      [1, 1, 1]
+      [1, 1, 1],
     ]
     setupMap(newMap)
 

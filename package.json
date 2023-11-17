@@ -8,11 +8,13 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "cz": "git cz"
+    "cz": "git cz",
+    "lint": "eslint ./src --fix"
   },
   "dependencies": {
     "pinia": "^2.1.7",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^1.1.0",
