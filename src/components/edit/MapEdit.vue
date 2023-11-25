@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import MapBlock from './MapBlock.vue'
-import { useEditStore } from '@/store/edit/mapEdit'
+import { useMapEditStore } from '@/store/edit/mapEdit'
 
-const { map } = useEditStore()
+const { map } = useMapEditStore()
 </script>
 
 <template>
