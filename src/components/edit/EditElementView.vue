@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toRefs, watchEffect } from 'vue'
-import { floorEditElement, wallEditElement } from '@/store/edit/editElement'
+import { floorEditElement, playerEditElement, wallEditElement } from '@/store/edit/editElement'
 import { useMapEditStore } from '@/store/edit/mapEdit'
 
 const { initMap, updateMapRow, updateMapCol } = useMapEditStore()
@@ -37,6 +37,10 @@ watchEffect(() => {
 
       <EditElementView :edit-element="wallEditElement" />
       <EditElementView :edit-element="floorEditElement" />
+    </div>
+    <div class="flex">
+      <h4>玩家：</h4>
+      <EditElementView :edit-element="playerEditElement" />
     </div>
   </div>
 </template>
