@@ -3,13 +3,21 @@ import { toRefs, watchEffect } from 'vue'
 import { floorEditElement, wallEditElement } from '@/store/edit/editElement'
 import { useMapEditStore } from '@/store/edit/mapEdit'
 
-const { initMap, updateMapRow } = useMapEditStore()
+const { initMap, updateMapRow, updateMapCol } = useMapEditStore()
 const { row, col } = toRefs(useMapEditStore())
 
 initMap()
 
 watchEffect(() => {
+  if (!row.value)
+    return
   updateMapRow()
+})
+
+watchEffect(() => {
+  if (!col.value)
+    return
+  updateMapCol()
 })
 </script>
 

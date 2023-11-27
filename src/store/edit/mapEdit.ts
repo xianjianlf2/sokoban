@@ -24,8 +24,28 @@ export const useMapEditStore = defineStore('map-edit', () => {
     }
   }
 
-  function setRow(val: number) {
-    row.value = val
+  function setRow(_row: number) {
+    row.value = _row
+  }
+
+  function setCol(_col: number) {
+    col.value = _col
+  }
+
+  function updateMapCol() {
+    const oldCol = map[0].length
+    if (col.value > oldCol) {
+      const diff = col.value - oldCol
+      map.forEach((row) => {
+        row.push(...Array(diff).fill(MapTile.FLOOR))
+      })
+    }
+    else if (col.value < oldCol) {
+      const diff = oldCol - col.value
+      map.forEach((row) => {
+        row.splice(-diff)
+      })
+    }
   }
 
   function updateMapRow() {
@@ -50,5 +70,7 @@ export const useMapEditStore = defineStore('map-edit', () => {
     initMap,
     setRow,
     updateMapRow,
+    setCol,
+    updateMapCol,
   }
 })
